@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Index",
+            "request": "launch",
+            "mainClass": "com.maverick.mquiz.Index",
+            "projectName": "mquiz"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-index<mquiz>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.maverick.mquiz.index",
+            "projectName": "mquiz",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
