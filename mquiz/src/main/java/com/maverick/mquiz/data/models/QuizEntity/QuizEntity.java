@@ -1,7 +1,7 @@
-package com.maverick.mquiz.data.models.QuestionEntity;
+package com.maverick.mquiz.data.models.QuizEntity;
 
 import java.util.List;
-import com.maverick.mquiz.data.models.QuizEntity.QuizEntity;
+import com.maverick.mquiz.data.models.QuestionEntity.QuestionEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,18 +9,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "question")
-public class QuestionEntity {
+@Table(name = "quiz", uniqueConstraints = @UniqueConstraint(columnNames = "title"))
+public class QuizEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
     @Column(nullable = false)
-    private Integer difficulty;
+    String title;
     @Column(nullable = false)
-    private String title, option1, option2, option3, option4, answer, category;
-    // private List<QuizEntity> quizes;
+    @ManyToMany //(mappedBy = "quizes")
+    List<QuestionEntity> questions;
+    @Column(nullable = false)
+    String category;
 }
