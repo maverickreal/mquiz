@@ -26,7 +26,7 @@ public class Question {
         try {
             return questionService.getAllQuestions();
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
