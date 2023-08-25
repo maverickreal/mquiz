@@ -2,10 +2,18 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ApiGatewayApplication",
+            "request": "launch",
+            "mainClass": "com.mquiz.api_gateway.ApiGatewayApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "EurekaApplication",
             "request": "launch",
             "mainClass": "com.mquiz.eureka.EurekaApplication",
-            "projectName": "eureka"
+            "projectName": "eureka",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=49178 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=eureka"
         },
         {
             "type": "java",
@@ -15,7 +23,8 @@
             "mainClass": "com.mquiz.quiz.QuizApplication",
             "projectName": "quiz",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=65334 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=quiz"
         },
         {
             "type": "java",
@@ -24,6 +33,17 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.mquiz.question.QuestionApplication",
             "projectName": "question",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=49179 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=question"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiGatewayApplication<api_gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mquiz.api_gateway.ApiGatewayApplication",
+            "projectName": "api_gateway",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

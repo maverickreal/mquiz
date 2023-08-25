@@ -13,6 +13,7 @@ import com.mquiz.question.logic.services.QuestionService.AnswerDto;
 import com.mquiz.question.logic.services.QuestionService.QuestionDto;
 import com.mquiz.question.logic.services.QuestionService.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 
 @RestController
@@ -20,7 +21,8 @@ import org.springframework.http.HttpStatus;
 public class Question {
     @Autowired
     private QuestionService questionService;
-
+    @Autowired
+    Environment environment;
     Question(QuestionService _QuestionService) {
         questionService = _QuestionService;
     }
@@ -49,6 +51,7 @@ public class Question {
     @PostMapping("fetch_from_ids")
     ResponseEntity<List<QuestionDto>> fetchQuestionsFromIds(@RequestBody List<Long> questionIds) {
         try {
+            System.out.println(environment.getProperty("local.server.port"));
             return questionService.fetchQuestionsFromIds(questionIds);
         } catch (Exception e) {
             System.out.println(e.getMessage());
