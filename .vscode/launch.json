@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "EurekaApplication",
+            "request": "launch",
+            "mainClass": "com.mquiz.eureka.EurekaApplication",
+            "projectName": "eureka"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-QuizApplication<quiz>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mquiz.quiz.QuizApplication",
+            "projectName": "quiz",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-QuestionApplication<question>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.mquiz.question.QuestionApplication",
+            "projectName": "question",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

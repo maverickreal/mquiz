@@ -1,9 +1,9 @@
 spring:
   application:
-     name: question
+    name: quiz
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://127.0.0.1:3306/mquizdbquestion
+    url: jdbc:mariadb://127.0.0.1:3306/mquizdbquiz
     username: root
     password: 7355
   jpa:
@@ -13,4 +13,4 @@ spring:
     hibernate:
       ddl-auto: update
 server:
-  port: 8080
+  port: 8081

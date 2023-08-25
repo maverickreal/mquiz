@@ -14,10 +14,6 @@ public class QuestionService {
     @Autowired
     QuestionRepo Question;
 
-    public ResponseEntity<List<QuestionEntity>> getAllQuestions() {
-        return new ResponseEntity<>(Question.findAll(), HttpStatus.OK);
-    }
-
     public ResponseEntity<List<QuestionEntity>> getQuestionsByCategory(String category) {
         return new ResponseEntity<List<QuestionEntity>>(Question.getQuestionsByCategory(category), HttpStatus.OK);
     }
@@ -31,20 +27,20 @@ public class QuestionService {
         return ResponseEntity.ok(Question.findNRandomQuestionsOfCategory(category, numberOfQuestions));
     }
 
-    public ResponseEntity<List<QuestionModel>> fetchQuestionsFromIds(List<Long> questionIds) {
-        List<QuestionModel> questions = new LinkedList<>();
+    public ResponseEntity<List<QuestionDto>> fetchQuestionsFromIds(List<Long> questionIds) {
+        List<QuestionDto> questions = new LinkedList<>();
         for (Long qid : questionIds) {
             QuestionEntity qEntity = Question.findById(qid).get();
-            questions.add(new QuestionModel(qEntity));
+            questions.add(new QuestionDto(qEntity));
         }
         return ResponseEntity.ok(questions);
     }
 
-    public ResponseEntity<Short> getQuizScore(List<AnswerModel> answers) {
+    public ResponseEntity<Short> getQuizScore(List<AnswerDto> answers) {
         Short score = 0;
-        for (AnswerModel aModel : answers) {
-            QuestionEntity qEntity = Question.findById(aModel.questionId()).get();
-            if (qEntity.getAnswer().equals(aModel.answer())) {
+        for (AnswerDto aDto : answers) {
+            QuestionEntity qEntity = Question.findById(aDto.questionId()).get();
+            if (qEntity.getAnswer().equals(aDto.answer())) {
                 score++;
             }
         }

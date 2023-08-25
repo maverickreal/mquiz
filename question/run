@@ -1,0 +1,7 @@
+if [ -z "$clean" ]; then
+	mvn spring-boot:run
+else
+	echo cleaning...
+	mvn clean install
+	mvn spring-boot:run
+fi
